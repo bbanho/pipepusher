@@ -1,0 +1,8 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "LLM background engine — context propagation",
+  "dependsOn": [
+    "08-llm-background-engine--summarization"
+  ]
+}

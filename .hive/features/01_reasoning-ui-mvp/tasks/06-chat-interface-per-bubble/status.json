@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Chat interface per bubble",
+  "dependsOn": [
+    "04-canvas-layout--columns-and-bubbles-react-flow",
+    "05-keyboard-navigation-engine"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Polish and deploy",
+  "dependsOn": [
+    "11-history-panel",
+    "12-worktree-isolation-and-cherry-pick-ui",
+    "13-score-computation-and-path-suggestion"
+  ]
+}

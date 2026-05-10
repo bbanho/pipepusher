@@ -1,0 +1,8 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "LLM background engine — semantic edges and tension detection",
+  "dependsOn": [
+    "08-llm-background-engine--summarization"
+  ]
+}

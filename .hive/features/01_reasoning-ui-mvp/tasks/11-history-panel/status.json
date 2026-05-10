@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "History panel",
+  "dependsOn": [
+    "03-indexeddb-persistence-layer",
+    "04-canvas-layout--columns-and-bubbles-react-flow"
+  ]
+}

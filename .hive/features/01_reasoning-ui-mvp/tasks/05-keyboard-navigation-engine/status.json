@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Keyboard navigation engine",
+  "dependsOn": [
+    "02-graph-state-model-zustand",
+    "04-canvas-layout--columns-and-bubbles-react-flow"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Graph state model (Zustand)",
+  "dependsOn": [
+    "01-project-scaffold"
+  ]
+}

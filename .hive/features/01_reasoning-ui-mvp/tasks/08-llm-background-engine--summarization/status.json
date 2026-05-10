@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "LLM background engine — summarization",
+  "dependsOn": [
+    "06-chat-interface-per-bubble",
+    "07-gemini-oauth-setup"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Canvas layout — columns and bubbles (React Flow)",
+  "dependsOn": [
+    "02-graph-state-model-zustand"
+  ]
+}

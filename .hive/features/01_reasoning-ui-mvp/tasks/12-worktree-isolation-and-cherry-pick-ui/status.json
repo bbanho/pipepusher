@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Worktree isolation and cherry pick UI",
+  "dependsOn": [
+    "05-keyboard-navigation-engine",
+    "10-llm-background-engine--semantic-edges-and-tension-detection"
+  ]
+}

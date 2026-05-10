@@ -1,0 +1,9 @@
+{
+  "status": "pending",
+  "origin": "plan",
+  "planTitle": "Score computation and path suggestion",
+  "dependsOn": [
+    "09-llm-background-engine--context-propagation",
+    "10-llm-background-engine--semantic-edges-and-tension-detection"
+  ]
+}
