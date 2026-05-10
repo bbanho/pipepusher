@@ -1,6 +1,12 @@
 {
-  "status": "pending",
+  "status": "done",
   "origin": "plan",
   "planTitle": "Project scaffold",
-  "dependsOn": []
+  "dependsOn": [],
+  "baseCommit": "b52990f7721e36b01401c909dcf2c3e72141ac39",
+  "schemaVersion": 1,
+  "startedAt": "2026-05-10T02:38:16.606Z",
+  "idempotencyKey": "hive-reasoning-ui-mvp-01-project-scaffold-1",
+  "summary": "Project scaffolded and verified. All dependencies installed and build succeeds.",
+  "completedAt": "2026-05-10T02:40:33.411Z"
 }

@@ -8,8 +8,8 @@
 
   "agents": {
     "hive-master": {
-      "_comment": "Orchestrator: plans, dispatches tasks, monitors DAG. Needs good reasoning but runs long — Flash balances cost/quality.",
-      "model": "google/antigravity-gemini-3-flash",
+      "_comment": "Orchestrator: plans, dispatches tasks, monitors DAG. Using Gemini 3.1 Pro for stronger DAG reasoning and plan quality.",
+      "model": "google/antigravity-gemini-3.1-pro",
       "temperature": 0.5
     },
     "scout-researcher": {

@@ -1,8 +1,14 @@
 {
-  "status": "pending",
+  "status": "done",
   "origin": "plan",
   "planTitle": "Canvas layout — columns and bubbles (React Flow)",
   "dependsOn": [
     "02-graph-state-model-zustand"
-  ]
+  ],
+  "baseCommit": "d76effc52ec47514915228a35074d7dd81f8d361",
+  "schemaVersion": 1,
+  "startedAt": "2026-05-10T02:51:57.174Z",
+  "idempotencyKey": "hive-reasoning-ui-mvp-04-canvas-layout--columns-and-bubbles-react-flow-1",
+  "summary": "Implemented the core React Flow canvas layout including custom nodes for bubbles, semantic edges, and column grouping. Integrated with the Zustand store and verified the build.",
+  "completedAt": "2026-05-10T02:54:05.000Z"
 }
