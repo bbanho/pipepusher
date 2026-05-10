@@ -21,7 +21,7 @@ export function useKeyboardNavigation() {
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement
 
-      if (e.key === 'Tab' && !isInput) {
+      if (e.key === 'Tab') {
         e.preventDefault()
         const store = useGraphStore.getState()
         const col = store.addColumn()
@@ -111,9 +111,17 @@ export function useKeyboardNavigation() {
       if (e.ctrlKey) {
         if (e.key === 'w') {
           e.preventDefault()
+          const store = useGraphStore.getState()
+          if (store.activeColumnId) {
+            store.isolateColumnAsWorktree(store.activeColumnId)
+          }
         }
         if (e.key === 'm') {
           e.preventDefault()
+          const store = useGraphStore.getState()
+          if (store.focusedBubbleId) {
+            store.proposeWorktreeMerge(store.focusedBubbleId)
+          }
         }
         if (e.key === 'h' || e.key === 'H') {
           e.preventDefault()
@@ -123,7 +131,7 @@ export function useKeyboardNavigation() {
       }
     }
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    window.addEventListener('keydown', handleKeyDown, { capture: true })
+    return () => window.removeEventListener('keydown', handleKeyDown, { capture: true })
   }, [focusedBubbleId])
 }

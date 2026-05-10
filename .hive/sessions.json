@@ -3,11 +3,11 @@
     {
       "sessionId": "ses_1f091fecbffeI3sYKkqch3zYHf",
       "startedAt": "2026-05-10T01:08:48.102Z",
-      "lastActiveAt": "2026-05-10T03:30:27.616Z",
+      "lastActiveAt": "2026-05-10T04:05:03.555Z",
       "agent": "hive-master",
       "sessionKind": "primary",
       "baseAgent": "hive-master",
-      "directivePrompt": "<system-reminder>\n[ALL BACKGROUND TASKS COMPLETE]\n\n**Completed:**\n- `bg_3bdef247`: Hive: 10-llm-background-engine--semantic-edges-and-tension-detection\n- `bg_d0414f65`: Hive: 09-llm-background-engine--context-propagation\n\nUse `background_output(task_id=\"<id>\")` to retrieve each result.\n</system-reminder>\n<!-- OMO_INTERNAL_INITIATOR -->",
+      "directivePrompt": "documente a ideia, o projeto, a engenharia e design pattern adequado; suba o repo no meu gh (use o cli), se https, use apeas via ssh",
       "replayDirectivePending": false,
       "featureName": "reasoning-ui-mvp"
     },
@@ -183,6 +183,39 @@
       "featureName": "reasoning-ui-mvp",
       "taskFolder": "10-llm-background-engine--semantic-edges-and-tension-detection",
       "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/10-llm-background-engine--semantic-edges-and-tension-detection/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f00f2013ffeSCsrf2izvKE3I6",
+      "startedAt": "2026-05-10T03:31:44.774Z",
+      "lastActiveAt": "2026-05-10T03:34:38.587Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "12-worktree-isolation-and-cherry-pick-ui",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/12-worktree-isolation-and-cherry-pick-ui/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f00f1fc5ffegXZdGqcAmWaOpW",
+      "startedAt": "2026-05-10T03:31:44.839Z",
+      "lastActiveAt": "2026-05-10T03:35:30.904Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "13-score-computation-and-path-suggestion",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/13-score-computation-and-path-suggestion/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f00ab262ffet9xky9sqwn56y6",
+      "startedAt": "2026-05-10T03:36:34.987Z",
+      "lastActiveAt": "2026-05-10T03:39:10.147Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "14-polish-and-deploy",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/14-polish-and-deploy/worker-prompt.md"
     }
   ]
 }

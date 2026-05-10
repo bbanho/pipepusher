@@ -20,6 +20,9 @@ import BubbleNode from './BubbleNode'
 import SemanticEdge from './SemanticEdge'
 import ColumnGroup from './ColumnGroup'
 
+import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation'
+import EmptyState from '../ui/EmptyState'
+
 const nodeTypes = {
   bubble: BubbleNode,
   column: ColumnGroup,
@@ -35,6 +38,8 @@ const COLUMN_PADDING = 50
 
 const ReasoningCanvasInner = () => {
   const { bubbles, columns, columnOrder, edges, focusedBubbleId } = useGraphStore()
+  
+  useKeyboardNavigation()
 
   const nodes = useMemo(() => {
     const rfNodes: Node[] = []
@@ -116,7 +121,11 @@ const ReasoningCanvasInner = () => {
   }, [bubbles, edges])
 
   return (
-    <div className="w-full h-full bg-slate-50">
+    <div 
+      className="w-full h-full bg-slate-50 relative focus:outline-none"
+      tabIndex={-1}
+    >
+      <EmptyState />
       <ReactFlow
         nodes={nodes}
         edges={rfEdges}
@@ -127,7 +136,6 @@ const ReasoningCanvasInner = () => {
         maxZoom={2}
       >
         <Background color="#cbd5e1" gap={20} />
-        <Controls />
       </ReactFlow>
     </div>
   )

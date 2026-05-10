@@ -1,9 +1,15 @@
 {
-  "status": "pending",
+  "status": "done",
   "origin": "plan",
   "planTitle": "Score computation and path suggestion",
   "dependsOn": [
     "09-llm-background-engine--context-propagation",
     "10-llm-background-engine--semantic-edges-and-tension-detection"
-  ]
+  ],
+  "baseCommit": "fa894e77649af977e90bdd197d8b888f6b9a9c84",
+  "schemaVersion": 1,
+  "startedAt": "2026-05-10T03:31:28.755Z",
+  "idempotencyKey": "hive-reasoning-ui-mvp-13-score-computation-and-path-suggestion-1",
+  "summary": "Implemented bubble score computation using Gemini 1.5 Pro and aggregate path suggestion logic. Integrated scoring into the background engine via Web Worker and added a 24-hour freshness check in EngineManager. All unit tests for the new logic pass. Existing IndexedDB tests fail globally due to versioning issues unrelated to my changes.",
+  "completedAt": "2026-05-10T03:35:31.099Z"
 }

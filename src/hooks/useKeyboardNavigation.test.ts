@@ -144,4 +144,50 @@ describe('useKeyboardNavigation', () => {
     expect(finalState.bubbles[root.id].children.length).toBe(2)
     expect(Object.keys(finalState.bubbles).length).toBe(4)
   })
+
+  it('isolates column as worktree on Ctrl+W', () => {
+    let col: any
+    act(() => {
+      const store = useGraphStore.getState()
+      col = store.addColumn()
+      store.addBubble(col.id, null)
+      useGraphStore.setState({ activeColumnId: col.id })
+    })
+
+    renderHook(() => useKeyboardNavigation())
+
+    const event = new KeyboardEvent('keydown', { key: 'w', ctrlKey: true })
+    vi.spyOn(event, 'preventDefault')
+    act(() => {
+      window.dispatchEvent(event)
+    })
+
+    expect(event.preventDefault).toHaveBeenCalled()
+    expect(useGraphStore.getState().columns[col.id].worktreeId).not.toBeNull()
+  })
+
+  it('proposes worktree merge on Ctrl+M', () => {
+    let col: any, root: any
+    act(() => {
+      const store = useGraphStore.getState()
+      col = store.addColumn()
+      root = store.addBubble(col.id, null)
+      useGraphStore.setState({ focusedBubbleId: root.id, activeColumnId: col.id })
+      store.isolateColumnAsWorktree(col.id)
+    })
+
+    renderHook(() => useKeyboardNavigation())
+
+    const event = new KeyboardEvent('keydown', { key: 'm', ctrlKey: true })
+    vi.spyOn(event, 'preventDefault')
+    act(() => {
+      window.dispatchEvent(event)
+    })
+
+    expect(event.preventDefault).toHaveBeenCalled()
+    const state = useGraphStore.getState()
+    expect(state.columnOrder.length).toBe(2)
+    const newColumnId = state.columnOrder[1]
+    expect(state.columns[newColumnId].worktreeId).toBeNull()
+  })
 })

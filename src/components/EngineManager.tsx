@@ -9,9 +9,11 @@ export function EngineManager() {
   const { data: session } = useSession()
   const bubbles = useGraphStore((state) => state.bubbles)
   const setSummary = useGraphStore((state) => state.setSummary)
+  const setBubbleScore = useGraphStore((state) => state.setBubbleScore)
   const setBubbleStatus = useGraphStore((state) => state.setBubbleStatus)
   const workerRef = useRef<Worker | null>(null)
   const processingRef = useRef<Set<string>>(new Set())
+  const scoringRef = useRef<Set<string>>(new Set())
   const propagationQueueRef = useRef<Set<string>>(new Set())
 
   useEffect(() => {
@@ -22,6 +24,9 @@ export function EngineManager() {
       if (response.type === 'summarized') {
         setSummary(response.bubbleId, response.summary)
         processingRef.current.delete(response.bubbleId)
+      } else if (response.type === 'scored') {
+        setBubbleScore(response.bubbleId, response.score, response.lastScoredAt)
+        scoringRef.current.delete(response.bubbleId)
       } else if (response.type === 'propagated') {
         setBubbleStatus(response.targetBubbleId, 'drafting')
         propagationQueueRef.current.delete(response.targetBubbleId)
@@ -33,7 +38,7 @@ export function EngineManager() {
     return () => {
       workerRef.current?.terminate()
     }
-  }, [setSummary, setBubbleStatus])
+  }, [setSummary, setBubbleScore, setBubbleStatus])
 
   useEffect(() => {
     if (!session?.accessToken || !workerRef.current) return
@@ -47,6 +52,20 @@ export function EngineManager() {
         processingRef.current.add(bubble.id)
         workerRef.current?.postMessage({
           type: 'summarize',
+          bubbleId: bubble.id,
+          content: bubble.content,
+          accessToken: session.accessToken as string,
+        } as WorkerRequest)
+      }
+
+      if (
+        bubble.status === 'summarized' &&
+        Date.now() - bubble.lastScoredAt > 24 * 60 * 60 * 1000 &&
+        !scoringRef.current.has(bubble.id)
+      ) {
+        scoringRef.current.add(bubble.id)
+        workerRef.current?.postMessage({
+          type: 'score',
           bubbleId: bubble.id,
           content: bubble.content,
           accessToken: session.accessToken as string,

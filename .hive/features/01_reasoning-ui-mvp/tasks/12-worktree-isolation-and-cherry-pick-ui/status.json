@@ -1,9 +1,15 @@
 {
-  "status": "pending",
+  "status": "done",
   "origin": "plan",
   "planTitle": "Worktree isolation and cherry pick UI",
   "dependsOn": [
     "05-keyboard-navigation-engine",
     "10-llm-background-engine--semantic-edges-and-tension-detection"
-  ]
+  ],
+  "baseCommit": "fa894e77649af977e90bdd197d8b888f6b9a9c84",
+  "schemaVersion": 1,
+  "startedAt": "2026-05-10T03:31:28.721Z",
+  "idempotencyKey": "hive-reasoning-ui-mvp-12-worktree-isolation-and-cherry-pick-ui-1",
+  "summary": "Implemented worktree isolation (Ctrl+W) and cherry-pick UI (Ctrl+M). Added worktreeId to Bubbles and Columns, with visual indicators in the canvas (amber background and 'WT' labels). All worktree actions are verified via TDD in GraphStore and KeyboardNavigation hooks.",
+  "completedAt": "2026-05-10T03:34:38.795Z"
 }

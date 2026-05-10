@@ -131,6 +131,39 @@
       "featureName": "reasoning-ui-mvp",
       "taskFolder": "09-llm-background-engine--context-propagation",
       "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/09-llm-background-engine--context-propagation/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f00f2013ffeSCsrf2izvKE3I6",
+      "startedAt": "2026-05-10T03:31:44.774Z",
+      "lastActiveAt": "2026-05-10T03:34:38.587Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "12-worktree-isolation-and-cherry-pick-ui",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/12-worktree-isolation-and-cherry-pick-ui/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f00f1fc5ffegXZdGqcAmWaOpW",
+      "startedAt": "2026-05-10T03:31:44.839Z",
+      "lastActiveAt": "2026-05-10T03:35:30.904Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "13-score-computation-and-path-suggestion",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/13-score-computation-and-path-suggestion/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f00ab262ffet9xky9sqwn56y6",
+      "startedAt": "2026-05-10T03:36:34.987Z",
+      "lastActiveAt": "2026-05-10T03:39:01.694Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "14-polish-and-deploy",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/14-polish-and-deploy/worker-prompt.md"
     }
   ]
 }

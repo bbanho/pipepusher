@@ -9,6 +9,6 @@
   "schemaVersion": 1,
   "startedAt": "2026-05-10T03:28:02.024Z",
   "idempotencyKey": "hive-reasoning-ui-mvp-10-llm-background-engine--semantic-edges-and-tension-detection-1",
-  "summary": "Implemented semantic relations and tension detection using Gemini 1.5 Pro. Added `detectSemanticRelations` engine function, updated Zustand store to handle semantic edges, and implemented a Web Worker for non-blocking LLM calls. Tests verify relation and tension detection.",
+  "summary": "Implemented semantic edge detection and tension analysis using Gemini 1.5 Pro. Added addSemanticEdges to store, updated worker to handle DETECT_RELATIONS, and added passing tests. Changes committed to main.",
   "completedAt": "2026-05-10T03:29:50.435Z"
 }

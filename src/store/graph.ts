@@ -7,6 +7,7 @@ export interface GraphActions {
   bifurcateBubble: (fromBubbleId: string) => Bubble
   updateBubbleContent: (id: string, content: string) => void
   setSummary: (id: string, summary: string) => void
+  setBubbleScore: (id: string, score: number, lastScoredAt: number) => void
   setBubbleStatus: (id: string, status: Bubble['status']) => void
   setActivePath: (columnId: string, bubbleId: string) => void
   setFocus: (bubbleId: string) => void
@@ -16,6 +17,8 @@ export interface GraphActions {
   hydrate: (state: Partial<GraphState>) => void
   archiveColumn: (id: string) => void
   restoreColumn: (id: string) => void
+  isolateColumnAsWorktree: (columnId: string) => void
+  proposeWorktreeMerge: (bubbleId: string) => Bubble
 }
 
 export const initialState: GraphState = {
@@ -153,6 +156,18 @@ export const useGraphStore = create<GraphState & GraphActions>((set, get) => ({
       },
     }))
   },
+  setBubbleScore: (id, score, lastScoredAt) => {
+    set((state) => ({
+      bubbles: {
+        ...state.bubbles,
+        [id]: {
+          ...state.bubbles[id],
+          score,
+          lastScoredAt,
+        },
+      },
+    }))
+  },
   setBubbleStatus: (id, status) => {
     set((state) => ({
       bubbles: {
@@ -258,5 +273,45 @@ export const useGraphStore = create<GraphState & GraphActions>((set, get) => ({
         archivedColumns: newArchived,
       }
     })
+  },
+  isolateColumnAsWorktree: (columnId) => {
+    const worktreeId = crypto.randomUUID()
+    set((state) => {
+      const columns = { ...state.columns }
+      if (columns[columnId]) {
+        columns[columnId] = { ...columns[columnId], worktreeId }
+      }
+
+      const bubbles = { ...state.bubbles }
+      Object.keys(bubbles).forEach((id) => {
+        if (bubbles[id].columnId === columnId) {
+          bubbles[id] = { ...bubbles[id], worktreeId }
+        }
+      })
+
+      return { columns, bubbles }
+    })
+  },
+  proposeWorktreeMerge: (bubbleId) => {
+    const sourceBubble = get().bubbles[bubbleId]
+    if (!sourceBubble) throw new Error('Source bubble not found')
+
+    const { addColumn, addBubble } = get()
+    const newColumn = addColumn()
+    const newBubble = addBubble(newColumn.id, null)
+
+    set((state) => ({
+      bubbles: {
+        ...state.bubbles,
+        [newBubble.id]: {
+          ...state.bubbles[newBubble.id],
+          content: sourceBubble.content,
+          status: sourceBubble.status,
+          worktreeId: null,
+        },
+      },
+    }))
+
+    return get().bubbles[newBubble.id]
   },
 }))
