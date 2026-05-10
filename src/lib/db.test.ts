@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import 'fake-indexeddb/auto'
 import { openDB } from 'idb'
 import { saveSession, loadSession, listSessions } from './db'
@@ -15,7 +15,7 @@ const mockState: GraphState = {
 
 describe('IndexedDB Persistence Layer', () => {
   async function clearDB() {
-    const db = await openDB('pipepusher-db', 1, {
+    const db = await openDB('pipepusher-db', 2, {
       upgrade(db) {
         if (!db.objectStoreNames.contains('sessions')) {
           db.createObjectStore('sessions', { keyPath: 'id' })
