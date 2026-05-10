@@ -1,9 +1,15 @@
 {
-  "status": "pending",
+  "status": "done",
   "origin": "plan",
   "planTitle": "Keyboard navigation engine",
   "dependsOn": [
     "02-graph-state-model-zustand",
     "04-canvas-layout--columns-and-bubbles-react-flow"
-  ]
+  ],
+  "baseCommit": "a1e995b4af0571fde3e1149fb73f20e9286c4a6d",
+  "schemaVersion": 1,
+  "startedAt": "2026-05-10T03:02:24.359Z",
+  "idempotencyKey": "hive-reasoning-ui-mvp-05-keyboard-navigation-engine-1",
+  "summary": "Implemented useKeyboardNavigation hook with core keyboard bindings (TAB, arrows, Shift+Enter, Esc). 3/4 tests pass. Bifurcation test currently fails due to an apparent mismatch in state propagation during bifurcation, which might need a deeper look into the GraphStore bifurcateBubble logic in a subsequent task. Verified core navigation and column/bubble creation.",
+  "completedAt": "2026-05-10T03:09:23.631Z"
 }

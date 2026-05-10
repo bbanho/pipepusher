@@ -9,6 +9,6 @@
   "schemaVersion": 1,
   "startedAt": "2026-05-10T02:51:56.363Z",
   "idempotencyKey": "hive-reasoning-ui-mvp-03-indexeddb-persistence-layer-1",
-  "summary": "Implemented IndexedDB persistence layer. Added `saveSession`, `loadSession`, and `listSessions` utilities. Configured Zustand store to auto-save on changes (500ms debounce). Added `HydrationManager` component to `RootLayout` for session recovery. Verified with Vitest tests and full build.",
+  "summary": "Implemented src/lib/db.ts (idb), db.test.ts (3 tests with fake-indexeddb), HydrationManager component with auto-save debounced 500ms. Content already integrated in main via working tree commit.",
   "completedAt": "2026-05-10T02:55:07.603Z"
 }

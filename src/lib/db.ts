@@ -13,7 +13,7 @@ interface PipePusherDB extends DBSchema {
 }
 
 const DB_NAME = 'pipepusher-db'
-const DB_VERSION = 1
+const DB_VERSION = 2
 
 let dbPromise: Promise<IDBPDatabase<PipePusherDB>> | null = null
 
@@ -21,8 +21,10 @@ function getDB() {
   if (typeof window === 'undefined') return null
   if (!dbPromise) {
     dbPromise = openDB<PipePusherDB>(DB_NAME, DB_VERSION, {
-      upgrade(db) {
-        db.createObjectStore('sessions', { keyPath: 'id' })
+      upgrade(db, oldVersion) {
+        if (oldVersion < 1) {
+          db.createObjectStore('sessions', { keyPath: 'id' })
+        }
       },
     })
   }

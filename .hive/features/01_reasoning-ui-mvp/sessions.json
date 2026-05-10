@@ -3,11 +3,11 @@
     {
       "sessionId": "ses_1f091fecbffeI3sYKkqch3zYHf",
       "startedAt": "2026-05-10T01:08:48.102Z",
-      "lastActiveAt": "2026-05-10T02:38:03.562Z",
+      "lastActiveAt": "2026-05-10T03:00:53.502Z",
       "agent": "hive-master",
       "sessionKind": "primary",
       "baseAgent": "hive-master",
-      "directivePrompt": "<auto-slash-command>\n# /domain-driven-design Command\n\n**Description**: (project - Skill) Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and evented architecture patterns.\n\n**User Arguments**: use subagentes em background para construir o código; otimize a engenharia do software para crescimento rápido até o MVP\n\n**Scope**: skill\n\n---\n\n## Command Instructions\n\n<skill-instruction>\nBase directory for this skill: /var/home/bruno/.agents/skills/domain-driven-design/\nFile references ([file not found: /var/home/bruno/.agents/skills/domain-driven-design/path)] in this skill are relative to this directory.\n\n# Domain-Driven Design\n\n## Use this skill when\n\n- You need to model a complex business domain with explicit boundaries.\n- You want to decide whether full DDD is worth the added complexity.\n- You need to connect strategic design decisions to implementation patterns.\n- You are planning CQRS, event sourcing, sagas, or projections from domain needs.\n\n## Do not use this skill when\n\n- The problem is simple CRUD with low business complexity.\n- You only need localized bug fixes.\n- There is no access to domain knowledge and no proxy product expert.\n\n## Instructions\n\n1. Run a viability check before committing to full DDD.\n2. Produce strategic artifacts first: subdomains, bounded contexts, language glossary.\n3. Route to specialized skills based on current task.\n4. Define success criteria and evidence for each stage.\n\n### Viability check\n\nUse full DDD only when at least two of these are true:\n\n- Business rules are complex or fast-changing.\n- Multiple teams are causing model collisions.\n- Integration contracts are unstable.\n- Auditability and explicit invariants are critical.\n\n### Routing map\n\n- Strategic model and boundaries: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/ddd-strategic-design`]\n- Cross-context integrations and translation: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/ddd-context-mapping`]\n- Tactical code modeling: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/ddd-tactical-patterns`]\n- Read/write separation: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/cqrs-implementation`]\n- Event history as source of truth: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/event-sourcing-architect`] and `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/event-store-design`]\n- Long-running workflows: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/saga-orchestration`]\n- Read models: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/projection-patterns`]\n- Decision log: `[file not found: /var/home/bruno/.agents/skills/domain-driven-design/architecture-decision-records`]\n\nIf templates are needed, open `references/ddd-deliverables.md`.\n\n## Output requirements\n\nAlways return:\n\n- Scope and assumptions\n- Current stage (strategic, tactical, or evented)\n- Explicit artifacts produced\n- Open risks and next step recommendation\n\n## Examples\n\n```text\nUse [file not found: /var/home/bruno/.agents/skills/domain-driven-design/domain-driven-design] to assess if this billing platform should adopt full DDD.\nThen route to the right next skill and list artifacts we must produce this week.\n```\n\n## Limitations\n\n- This skill does not replace direct workshops with domain experts.\n- It does not provide framework-specific code generation.\n- It should not be used as a justification to over-engineer simple systems.\n</skill-instruction>\n\n<user-request>\nuse subagentes em background para construir o código; otimize a engenharia do software para crescimento rápido até o MVP\n</user-request>\n\n\n---\n\n## User Request\n\nuse subagentes em background para construir o código; otimize a engenharia do software para crescimento rápido até o MVP\n</auto-slash-command>\n\n<skill-instruction>\nBase directory for this skill: /var/home/bruno/.agents/skills/domain-driven-design/\nFile references (@path) in this skill are relative to this directory.\n\n# Domain-Driven Design\n\n## Use this skill when\n\n- You need to model a complex business domain with explicit boundaries.\n- You want to decide whether full DDD is worth the added complexity.\n- You need to connect strategic design decisions to implementation patterns.\n- You are planning CQRS, event sourcing, sagas, or projections from domain needs.\n\n## Do not use this skill when\n\n- The problem is simple CRUD with low business complexity.\n- You only need localized bug fixes.\n- There is no access to domain knowledge and no proxy product expert.\n\n## Instructions\n\n1. Run a viability check before committing to full DDD.\n2. Produce strategic artifacts first: subdomains, bounded contexts, language glossary.\n3. Route to specialized skills based on current task.\n4. Define success criteria and evidence for each stage.\n\n### Viability check\n\nUse full DDD only when at least two of these are true:\n\n- Business rules are complex or fast-changing.\n- Multiple teams are causing model collisions.\n- Integration contracts are unstable.\n- Auditability and explicit invariants are critical.\n\n### Routing map\n\n- Strategic model and boundaries: `@ddd-strategic-design`\n- Cross-context integrations and translation: `@ddd-context-mapping`\n- Tactical code modeling: `@ddd-tactical-patterns`\n- Read/write separation: `@cqrs-implementation`\n- Event history as source of truth: `@event-sourcing-architect` and `@event-store-design`\n- Long-running workflows: `@saga-orchestration`\n- Read models: `@projection-patterns`\n- Decision log: `@architecture-decision-records`\n\nIf templates are needed, open `references/ddd-deliverables.md`.\n\n## Output requirements\n\nAlways return:\n\n- Scope and assumptions\n- Current stage (strategic, tactical, or evented)\n- Explicit artifacts produced\n- Open risks and next step recommendation\n\n## Examples\n\n```text\nUse @domain-driven-design to assess if this billing platform should adopt full DDD.\nThen route to the right next skill and list artifacts we must produce this week.\n```\n\n## Limitations\n\n- This skill does not replace direct workshops with domain experts.\n- It does not provide framework-specific code generation.\n- It should not be used as a justification to over-engineer simple systems.\n</skill-instruction>\n\n<user-request>\nuse subagentes em background para construir o código; otimize a engenharia do software para crescimento rápido até o MVP\n</user-request>",
+      "directivePrompt": "compact iminente",
       "replayDirectivePending": false,
       "featureName": "reasoning-ui-mvp"
     },
@@ -65,6 +65,72 @@
       "featureName": "reasoning-ui-mvp",
       "taskFolder": "03-indexeddb-persistence-layer",
       "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/03-indexeddb-persistence-layer/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f029e40bffejjeUJk7ndaepZB",
+      "startedAt": "2026-05-10T03:02:30.648Z",
+      "lastActiveAt": "2026-05-10T03:05:05.755Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "11-history-panel",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/11-history-panel/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f029e444ffeZWwn2fcUdplxSf",
+      "startedAt": "2026-05-10T03:02:30.599Z",
+      "lastActiveAt": "2026-05-10T03:09:23.445Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "05-keyboard-navigation-engine",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/05-keyboard-navigation-engine/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f01c3729ffei5ErmFNOzs1AWe",
+      "startedAt": "2026-05-10T03:17:26.882Z",
+      "lastActiveAt": "2026-05-10T03:20:50.605Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "06-chat-interface-per-bubble",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/06-chat-interface-per-bubble/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f01818eaffexZrHqB19E47lcZ",
+      "startedAt": "2026-05-10T03:21:56.765Z",
+      "lastActiveAt": "2026-05-10T03:26:16.220Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "08-llm-background-engine--summarization",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/08-llm-background-engine--summarization/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f0126498ffeX75HCzG1JiA9WM",
+      "startedAt": "2026-05-10T03:28:10.603Z",
+      "lastActiveAt": "2026-05-10T03:29:50.303Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "10-llm-background-engine--semantic-edges-and-tension-detection",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/10-llm-background-engine--semantic-edges-and-tension-detection/worker-prompt.md"
+    },
+    {
+      "sessionId": "ses_1f01264d2ffeJG7Tmjct42YxNx",
+      "startedAt": "2026-05-10T03:28:10.547Z",
+      "lastActiveAt": "2026-05-10T03:30:07.815Z",
+      "agent": "forager-worker",
+      "sessionKind": "task-worker",
+      "baseAgent": "forager-worker",
+      "featureName": "reasoning-ui-mvp",
+      "taskFolder": "09-llm-background-engine--context-propagation",
+      "workerPromptPath": ".hive/features/01_reasoning-ui-mvp/tasks/09-llm-background-engine--context-propagation/worker-prompt.md"
     }
   ]
 }

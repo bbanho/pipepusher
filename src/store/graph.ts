@@ -12,6 +12,10 @@ export interface GraphActions {
   setFocus: (bubbleId: string) => void
   addEdge: (fromId: string, toId: string, label: string) => void
   setTension: (edgeId: string, tension: SemanticEdge['tension']) => void
+  toggleHistory: () => void
+  hydrate: (state: Partial<GraphState>) => void
+  archiveColumn: (id: string) => void
+  restoreColumn: (id: string) => void
 }
 
 export const initialState: GraphState = {
@@ -19,8 +23,10 @@ export const initialState: GraphState = {
   columns: {},
   columnOrder: [],
   edges: {},
+  archivedColumns: {},
   activeColumnId: null,
   focusedBubbleId: null,
+  isHistoryOpen: false,
 }
 
 export const useGraphStore = create<GraphState & GraphActions>((set, get) => ({
@@ -197,5 +203,60 @@ export const useGraphStore = create<GraphState & GraphActions>((set, get) => ({
         },
       },
     }))
+  },
+  toggleHistory: () => {
+    set((state) => ({ isHistoryOpen: !state.isHistoryOpen }))
+  },
+  hydrate: (state) => {
+    set((old) => ({ ...old, ...state }))
+  },
+  archiveColumn: (id) => {
+    set((state) => {
+      const column = state.columns[id]
+      if (!column) return state
+
+      const columnBubbles = Object.values(state.bubbles).filter((b) => b.columnId === id)
+      const bubbleIds = columnBubbles.map((b) => b.id)
+
+      const remainingBubbles = { ...state.bubbles }
+      bubbleIds.forEach((bid) => delete remainingBubbles[bid])
+
+      const remainingColumns = { ...state.columns }
+      delete remainingColumns[id]
+
+      return {
+        columns: remainingColumns,
+        columnOrder: state.columnOrder.filter((cid) => cid !== id),
+        bubbles: remainingBubbles,
+        archivedColumns: {
+          ...state.archivedColumns,
+          [id]: { ...column, bubbles: columnBubbles },
+        },
+        activeColumnId: state.activeColumnId === id ? null : state.activeColumnId,
+        focusedBubbleId: bubbleIds.includes(state.focusedBubbleId!) ? null : state.focusedBubbleId,
+      }
+    })
+  },
+  restoreColumn: (id) => {
+    set((state) => {
+      const archived = state.archivedColumns[id]
+      if (!archived) return state
+
+      const { bubbles: restoredBubbles, ...column } = archived
+      const newBubbles = { ...state.bubbles }
+      restoredBubbles.forEach((b) => {
+        newBubbles[b.id] = b
+      })
+
+      const newArchived = { ...state.archivedColumns }
+      delete newArchived[id]
+
+      return {
+        columns: { ...state.columns, [id]: column },
+        columnOrder: [...state.columnOrder, id],
+        bubbles: newBubbles,
+        archivedColumns: newArchived,
+      }
+    })
   },
 }))

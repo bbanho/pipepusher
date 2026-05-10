@@ -47,7 +47,10 @@ const ReasoningCanvasInner = () => {
       rfNodes.push({
         id: `column-${columnId}`,
         type: 'column',
-        data: { label: `Column ${index + 1}` },
+        data: { 
+          label: `Column ${index + 1}`,
+          columnId: columnId
+        },
         position: { x: index * COLUMN_WIDTH, y: 0 },
         style: {
           width: COLUMN_WIDTH - 20,

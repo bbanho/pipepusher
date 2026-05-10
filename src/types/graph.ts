@@ -47,6 +47,8 @@ export interface GraphState {
   columns: Record<string, Column>
   columnOrder: string[]
   edges: Record<string, SemanticEdge>
+  archivedColumns: Record<string, Column & { bubbles: Bubble[] }>
   activeColumnId: string | null
   focusedBubbleId: string | null
+  isHistoryOpen: boolean
 }

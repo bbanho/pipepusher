@@ -1,9 +1,15 @@
 {
-  "status": "pending",
+  "status": "done",
   "origin": "plan",
   "planTitle": "LLM background engine — summarization",
   "dependsOn": [
     "06-chat-interface-per-bubble",
     "07-gemini-oauth-setup"
-  ]
+  ],
+  "baseCommit": "a1e995b4af0571fde3e1149fb73f20e9286c4a6d",
+  "schemaVersion": 1,
+  "startedAt": "2026-05-10T03:21:50.024Z",
+  "idempotencyKey": "hive-reasoning-ui-mvp-08-llm-background-engine--summarization-1",
+  "summary": "Implemented LLM background engine for bubble summarization.\n- Created `src/engine/summarize.ts` to call Gemini API for 3-5 word titles.\n- Implemented `src/engine/worker.ts` as a Web Worker to handle off-main-thread LLM calls.\n- Added `EngineManager` component to watch for new bubbles and trigger summarization via the worker.\n- Updated `GraphStore` with `setSummary` action.\n- Added type definitions for `next-auth` to support `accessToken` in session.\n- Integrated `EngineManager` into the root layout.\n- Verified with unit tests (`src/engine/__tests__/summarize.test.ts`) and full production build.",
+  "completedAt": "2026-05-10T03:26:16.411Z"
 }
