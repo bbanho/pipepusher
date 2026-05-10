@@ -1,0 +1,136 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "_comment": "Project-local agent→model mapping for PipePusher. Overrides ~/.config/opencode/oh-my-openagent.json. Change 'model' and 'variant' per agent to tune cost/quality per role without touching global settings.",
+
+  "agents": {
+    "sisyphus": {
+      "_comment": "Main orchestrator / long-running planner sessions",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "max"
+    },
+    "oracle": {
+      "_comment": "Deep analysis, architecture review, critical reasoning",
+      "model": "google/antigravity-claude-sonnet-4-6",
+      "variant": "high",
+      "fallback_models": [
+        { "model": "google/antigravity-gemini-3.1-pro", "variant": "max" }
+      ]
+    },
+    "plan": {
+      "_comment": "Plan writing agent — medium quality, fast iteration",
+      "model": "google/antigravity-gemini-3.1-pro",
+      "variant": "low"
+    },
+    "explore": {
+      "_comment": "Codebase exploration / read-only research — cheap",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    },
+    "multimodal-looker": {
+      "_comment": "Image/PDF/screenshot analysis",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    },
+    "prometheus": {
+      "_comment": "Strategic planning, PRD writing, long-horizon tasks",
+      "model": "google/antigravity-claude-sonnet-4-6",
+      "variant": "max",
+      "fallback_models": [
+        { "model": "google/gemini-3.1-pro-preview" }
+      ]
+    },
+    "metis": {
+      "_comment": "Tactical problem-solving, short implementation tasks",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    },
+    "momus": {
+      "_comment": "Code review, critique, quality assessment",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "max",
+      "fallback_models": [
+        { "model": "google/gemini-3.1-pro-preview", "variant": "high" }
+      ]
+    },
+    "atlas": {
+      "_comment": "Background heavy lifting, data transformation",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    },
+    "sisyphus-junior": {
+      "_comment": "Lightweight orchestration for small tasks",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    },
+    "librarian": {
+      "_comment": "Documentation lookup, knowledge retrieval",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low"
+    }
+  },
+
+  "categories": {
+    "visual-engineering": {
+      "_comment": "UI/UX implementation tasks requiring visual reasoning",
+      "model": "google/antigravity-gemini-3.1-pro",
+      "variant": "high",
+      "fallback_models": [
+        { "model": "anthropic/claude-sonnet-4-6", "variant": "max" }
+      ]
+    },
+    "ultrabrain": {
+      "_comment": "Maximum reasoning — complex architecture decisions",
+      "model": "google/antigravity-claude-sonnet-4-6",
+      "variant": "high",
+      "fallback_models": [
+        { "model": "anthropic/claude-sonnet-4-6", "variant": "max" }
+      ]
+    },
+    "deep": {
+      "_comment": "Extended reasoning, multi-step deduction",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "max",
+      "fallback_models": [
+        { "model": "google/gemini-3.1-pro-preview", "variant": "high" }
+      ]
+    },
+    "artistry": {
+      "_comment": "Creative writing, UX copy, narrative generation",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "high",
+      "fallback_models": [
+        { "model": "anthropic/claude-opus-4-6", "variant": "max" }
+      ]
+    },
+    "quick": {
+      "_comment": "Fast, cheap — summaries, simple transforms",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low",
+      "fallback_models": [
+        { "model": "google/gemini-3-flash-preview" }
+      ]
+    },
+    "unspecified-low": {
+      "_comment": "Default low-cost category for unclassified background tasks",
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "low",
+      "fallback_models": [
+        { "model": "google/gemini-3-flash-preview" }
+      ]
+    },
+    "unspecified-high": {
+      "_comment": "Default high-quality category for unclassified foreground tasks",
+      "model": "google/antigravity-gemini-3-flash",
+      "fallback_models": [
+        { "model": "google/gemini-3-flash-preview" }
+      ]
+    },
+    "writing": {
+      "_comment": "Technical writing — docs, specs, commit messages",
+      "model": "google/antigravity-gemini-3-flash",
+      "fallback_models": [
+        { "model": "anthropic/claude-sonnet-4-6" }
+      ]
+    }
+  }
+}

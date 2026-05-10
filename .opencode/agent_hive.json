@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tctinh/agent-hive/main/packages/opencode-hive/schema/agent_hive.schema.json",
+  "_comment": "Project-local Hive agent config for PipePusher. Overrides ~/.config/opencode/agent_hive.json. Controls which model each Hive role uses. Edit here to tune cost vs quality per role.",
+
+  "agentMode": "unified",
+  "disableSkills": [],
+  "disableMcps": [],
+
+  "agents": {
+    "hive-master": {
+      "_comment": "Orchestrator: plans, dispatches tasks, monitors DAG. Needs good reasoning but runs long — Flash balances cost/quality.",
+      "model": "google/antigravity-gemini-3-flash",
+      "temperature": 0.5
+    },
+    "scout-researcher": {
+      "_comment": "Read-only exploration: grep, read files, research codebase. Cheap — Flash is enough.",
+      "model": "google/antigravity-gemini-3-flash",
+      "temperature": 0.5
+    },
+    "forager-worker": {
+      "_comment": "Implementation worker: writes code, runs tests, commits. Low temperature for determinism. Upgrade to Pro if tasks are failing due to reasoning quality.",
+      "model": "google/antigravity-gemini-3-flash",
+      "temperature": 0.3
+    },
+    "hygienic-reviewer": {
+      "_comment": "Code reviewer: catches bugs, invariant violations, style issues. Flash is sufficient for most reviews; swap to claude-sonnet for deep architectural review.",
+      "model": "google/antigravity-gemini-3-flash",
+      "temperature": 0.3
+    }
+  }
+}

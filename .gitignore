@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# .opencode/ is tracked intentionally — contains project-local LLM/agent configs.
+# opencode.json may contain API keys — keep .env.local for secrets instead.
+# .opencode/opencode.json  ← DO NOT add real API keys here, use .env.local
+
