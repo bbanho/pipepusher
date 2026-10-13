@@ -4,7 +4,7 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-# PipePusher — Agent & Engineering Guidelines (v1.0)
+# NEXUS-canvas — Agent & Engineering Guidelines (v1.0)
 
 This document is the absolute source of truth for AI Agents and Developers working on this project. Follow these rules strictly.
 

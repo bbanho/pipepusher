@@ -1,8 +1,8 @@
-# PipePusher
+# NEXUS-canvas
 
 > *"O usuário pensa mais rápido que digita, esquece mais rápido que prompta."*
 
-PipePusher is a **tab-driven reasoning canvas** designed to capture, organize, and converge fragmented developer thoughts into coherent implementation plans. It pairs a fluid, keyboard-first UI with a silent, asynchronous LLM engine that deduces relationships between parallel ideas.
+NEXUS-canvas is a **tab-driven reasoning canvas** designed to capture, organize, and converge fragmented developer thoughts into coherent implementation plans. It pairs a fluid, keyboard-first UI with a silent, asynchronous LLM engine that deduces relationships between parallel ideas.
 
 ---
 
@@ -10,13 +10,12 @@ PipePusher is a **tab-driven reasoning canvas** designed to capture, organize, a
 
 Traditional chat interfaces force a linear, single-threaded thought process. Developers, however, often think in parallel, exploring multiple approaches, hitting dead ends, and bifurcating ideas.
 
-PipePusher models this natural cognitive flow:
+The system's ultimate goal is to help the user **converge** multiple parallel lines into a single, highly coherent implementation plan via cherry-picking and merging.
 - **Columns (Tabs):** Independent, parallel lines of thought.
 - **Bubbles:** Chat fragments within a line of thought.
 - **Branches:** Bifurcations where a single thought splits into alternative approaches.
 - **Semantic Edges:** The engine automatically detects when parallel columns touch on similar concepts, creating "tension" or "coherence" links.
 
-The system's ultimate goal is to help the user **converge** multiple parallel lines into a single, highly coherent implementation plan via cherry-picking and merging.
 
 ---
 
