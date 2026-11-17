@@ -22,7 +22,7 @@ export default function StatusBar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur text-slate-300 p-2.5 px-4 text-xs flex justify-between items-center z-50 font-mono shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] border-t border-slate-800">
       <div className="flex items-center space-x-6">
-        <span className="font-semibold text-white tracking-wide">PipePusher Engine</span>
+        <span className="font-semibold text-white tracking-wide">NEXUS-canvas Engine</span>
         {activeColumnId ? (
           <span className="text-emerald-400 flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Active Column: {activeColumnId.substring(0, 5)}</span>
         ) : (

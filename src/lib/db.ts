@@ -1,7 +1,7 @@
 import { openDB, DBSchema, IDBPDatabase } from 'idb'
 import { GraphState } from '@/types/graph'
 
-interface PipePusherDB extends DBSchema {
+interface NexusCanvasDB extends DBSchema {
   sessions: {
     key: string
     value: {
@@ -12,15 +12,15 @@ interface PipePusherDB extends DBSchema {
   }
 }
 
-const DB_NAME = 'pipepusher-db'
+const DB_NAME = 'nexus-canvas-db'
 const DB_VERSION = 2
 
-let dbPromise: Promise<IDBPDatabase<PipePusherDB>> | null = null
+let dbPromise: Promise<IDBPDatabase<NexusCanvasDB>> | null = null
 
 function getDB() {
   if (typeof window === 'undefined') return null
   if (!dbPromise) {
-    dbPromise = openDB<PipePusherDB>(DB_NAME, DB_VERSION, {
+    dbPromise = openDB<NexusCanvasDB>(DB_NAME, DB_VERSION, {
       upgrade(db, oldVersion) {
         if (oldVersion < 1) {
           db.createObjectStore('sessions', { keyPath: 'id' })

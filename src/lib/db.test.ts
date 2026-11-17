@@ -15,7 +15,7 @@ const mockState: GraphState = {
 
 describe('IndexedDB Persistence Layer', () => {
   async function clearDB() {
-    const db = await openDB('pipepusher-db', 2, {
+    const db = await openDB('nexus-canvas-db', 2, {
       upgrade(db) {
         if (!db.objectStoreNames.contains('sessions')) {
           db.createObjectStore('sessions', { keyPath: 'id' })
